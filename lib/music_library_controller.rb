@@ -1,4 +1,3 @@
-require 'pry'
 class MusicLibraryController 
   attr_accessor :path 
   
@@ -102,7 +101,6 @@ class MusicLibraryController
     response = gets.strip.to_i
     if response.is_a?(Integer) 
       if response > 0 && response <= list.size
-        binding.pry
         puts "Playing #{list[response - 1].name} by #{list[response - 1].artist.name}"
       end
     end
