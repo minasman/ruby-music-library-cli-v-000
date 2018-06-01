@@ -1,4 +1,3 @@
-require 'pry'
 class Song 
   extend Concerns::Findable
   attr_accessor :name, :artist, :genre
@@ -12,7 +11,6 @@ class Song
     if genre != nil 
       self.genre=(genre)
     end
-  
   end
   
   def self.all 
@@ -38,7 +36,7 @@ class Song
   
   def genre=(genre)
     @genre = genre
-    genre.songs << self if !genre.songs.include?(self)
+    genre.songs << self unless genre.songs.include?(self)
   end
     
   def self.new_from_filename(filename)
@@ -49,5 +47,4 @@ class Song
     Song.new_from_filename(filename).save
   end
  
-    
 end
